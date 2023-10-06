@@ -1,0 +1,21 @@
+<div>
+    <mat-icon [matBadge]="computadores.length" matBadgeColor="primary">Computadores</mat-icon>
+  </div>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column">
+    <mat-card fxFlex="20" class="card-computador" *ngFor="let computador of computadores">
+      <mat-card-header>
+        <mat-card-title>{{computador.numeroSerie}} - {{ computador.modelo }}</mat-card-title>
+        <mat-card-subtitle>Marca: {{ computador.marca }} - Modelo: {{ computador.processador }}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions>
+        <button mat-button [routerLink]="['/editacomputador', computador.numeroSerie]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="excluir(computador)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
